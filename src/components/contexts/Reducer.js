@@ -16,6 +16,12 @@ const reducers = (state, action) => {
                 ...state,
                 userDetails: userDetails,
             };
+        case "UPDATE_FETCH_DATA":
+            const fetchData = { ...state.fetchData, ...action.payload };
+            return {
+                ...state,
+                fetchData: fetchData,
+            };
         default:
             return state;
     }

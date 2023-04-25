@@ -71,6 +71,9 @@ const AddAbout = ({ setAddAbout, addAbout }) => {
                                     />
                                 </PhotoDiv>
                                 <Button onClick={handleAddAbout}>Submit</Button>
+                                <Button onClick={() => setAddAbout(false)}>
+                                    Close
+                                </Button>
                             </Form>
                         </FormContainer>
                     </Modal>

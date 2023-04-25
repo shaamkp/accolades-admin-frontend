@@ -29,7 +29,6 @@ const Login = () => {
                 }
             });
     }
-    console.log(handleSubmit(), "11111111111111111");
 
 
   return (
@@ -40,7 +39,7 @@ const Login = () => {
                   <Content>
                       <Form>
                           <UsernameDiv>
-                              <Label for="username">Username</Label>
+                              <Label>Username</Label>
                               <Username
                                   type="text"
                                   placeholder="Your Username"
@@ -49,7 +48,7 @@ const Login = () => {
                               />
                           </UsernameDiv>
                           <PasswordDiv>
-                              <Label for="password">Password</Label>
+                              <Label>Password</Label>
                               <Password
                                   type="password"
                                   placeholder="Your Password"
@@ -96,7 +95,7 @@ const Label = styled.label`
     font-weight: 700;
     color: #fff;
 `;
-const Form = styled.form``;
+const Form = styled.div``;
 const UsernameDiv = styled.div`
     width: 500px;
     margin-bottom: 10px;

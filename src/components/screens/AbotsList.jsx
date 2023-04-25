@@ -1,17 +1,31 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { userConfig } from '../../axiosinstance';
+import { Context } from '../contexts/Store';
 
 const AbotsList = ({
     setAddAbout,
     addAbout,
     editAbout,
     setEditAbout,
-    items,
-    setItems,
 }) => {
 
-    console.log(items,"000000000000000000000");
+    const[about, setAbout] = useState("")
+
+    const {
+        state: { fetchData },
+    } = useContext(Context);
+
+    const x = fetchData.items;
+
+    console.log(fetchData, "==========items============");
+
+    // useEffect(() => {
+    //     setAbout(items.name);
+    // })
+
+
+
     return (
         <div>
             <MainContainer>
@@ -22,8 +36,8 @@ const AbotsList = ({
                 >
                     Add About
                 </Button>
-                {/* <AboutContainer>
-                    {items.map((item) => (
+                <AboutContainer>
+                    {/* {items.map((item) => (
                         <ContentContainer key={item.id}>
                             <Id>{item.id}.</Id>
                             <Name>{item.name}</Name>
@@ -36,8 +50,8 @@ const AbotsList = ({
                                 Edit About
                             </Button>
                         </ContentContainer>
-                    ))}
-                </AboutContainer> */}
+                    ))} */}
+                </AboutContainer>
             </MainContainer>
         </div>
     );

@@ -10,6 +10,9 @@ const initialState = {
         username: "",
         password: "",
     },
+    fetchData: {
+        items: [],
+    },
 };
 
 const Store = ({ children }) => {

@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import styled from 'styled-components';
 import { userConfig } from '../../axiosinstance';
+import { Context } from '../contexts/Store';
 import AbotsList from './AbotsList'
 import AddAbout from './modal/AddAbout';
 import EditAbout from './modal/EditAbout';
@@ -10,15 +11,27 @@ const About = () => {
     const [iseditAbout, setEditAbout] = useState(false);
     const [items, setItems] = useState("");
 
+    const {
+        dispatch,
+    } = useContext(Context);
+
     useEffect(() => {
         userConfig.get("web/abouts/").then((response) => {
             console.log(response.data, "-=-=-=-=-=-=-=-");
             const { StatusCode, data } = response.data;
             if (StatusCode === 6000) {
                 setItems(data.data);
+                dispatch({
+                    type: "UPDATE_FETCH_DATA",
+                    payload: {
+                        items: data.data,
+                    },
+                });
             }
         });
     }, []);
+
+
 
     return (
         <div>
